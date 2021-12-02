@@ -1,0 +1,11 @@
+* This sets the mode-line customization
+  #+BEGIN_SRC emacs-lisp
+(defun my-violet-config ()
+  "Violet Mode-Line Config"
+  (interactive)
+  (set-face-background #'mode-line-inactive "snow")
+  (set-face-foreground #'mode-line-inactive "black")
+  (set-face-background #'mode-line "blue violet")
+  (set-face-foreground #'mode-line "snow"))
+  #+END_SRC
+  -----
