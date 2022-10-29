@@ -1,1 +1,1 @@
-My dotfiles for window managers i3 and spectrwm
+My dotfiles for window managers i3, spectrwm, Awesome, and bspwm
