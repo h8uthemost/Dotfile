@@ -1,0 +1,42 @@
+#############Applications##################
+definekey top s-c exec chromium-browser
+definekey top s-f exec firefox
+definekey top s-d exec dmenu_run -nb '#151515' -nf '#A4A4A4'
+definekey top s-p exec pcmanfm
+definekey top s-t exec thunar
+definekey top s-Return exec kitty
+definekey top s-z exec /home/scott/.dzen2
+
+#############Reload keys#################
+definekey top s-C-s source .ratpoisonkeys
+
+############Quit######################
+definekey top s-C-q quit
+
+#############Keybinds####################
+definekey top s-Up focusup
+definekey top s-Down focusdown
+definekey top s-Left focusleft
+definekey top s-Right focusright
+definekey top s-S hsplit
+definekey top s-s split
+definekey top s-k delete
+definekey top s-r remove
+definekey top s-R resize
+definekey top s-S-Left exchangeleft
+definekey top s-S-Right exchangeright
+definekey top s-S-Up exchangeup
+definekey top s-S-Down exchangedown
+definekey top s-space next
+definekey top s-M-space prev
+definekey top s-1 exec rpws 1
+definekey top s-2 exec rpws 2
+definekey top s-3 exec rpws 3
+definekey top s-4 exec rpws 4
+
+##########################Volume Keys#######################
+definekey top XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
+definekey top XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
+definkey top  XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+.
+escape Control_R

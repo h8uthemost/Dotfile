@@ -1,0 +1,29 @@
+# overriding CTRL+t 'c' to start kitty instead of xterm
+bind c exec kitty
+
+set winname title
+set wingravity center
+set bargravity center
+set transgravity center
+set border 3
+set barborder 1
+set font "Roboto:size=10"
+set bgcolor #000000
+set fgcolor #BDBCBB
+set padding 0 16 0 0
+msgwait 6
+
+addhook quit exec killall dzen2
+addhook quit exec killall redshift
+exec conky | dzen2 -ta c -e 'sigusr1=hide;sigusr2=unhide' -h '16' -fn 'inconsolata-g' &
+exec feh --bg-scale /home/scott/dark.png
+exec rpws init 4 -a -k
+exec kitty
+exec redshift
+exec lxpolkit
+
+source .ratpoisonkeys
+
+
+
+
