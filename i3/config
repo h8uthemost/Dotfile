@@ -252,6 +252,7 @@ bindsym mod1+k exec kitty
 bindsym mod1+p exec pcmanfm
 bindsym mod1+s exec soundconverter
 bindsym mod1+t exec thunar
+bindsym mod1+q exec qutebrowser
 bindsym $mod+Shift+Return exec kitty -e ranger
 bindsym $mod+Shift+t exec kitty -e rtorrent
 bindsym $mod+b bar mode toggle
