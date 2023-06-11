@@ -175,6 +175,7 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 hc rule fixedsize floating=on
+hc rule switchtag=on
 
 hc set tree_style '╾│ ├└╼─┐'
 
@@ -219,11 +220,14 @@ fi
 feh --bg-scale /home/scott/dark.png &
 $HOME/.config/polybar/launch.sh &
 
-hc rule class=Alacritty tag=1 
+hc rule class=Alacritty tag=1
+hc rule class=Kitty tag=1
 hc rule class='firefox' tag=2
+hc rule class=Chromium-browser tag=2 
 hc rule class=Pcmanfm tag=3 
-hc rule class=Thunderbird tag=4
-hc rule class=Thunar tag=4
+hc rule class=Thunderbird tag=4 
+hc rule class=Thunar tag=4 
+hc rule class=Nicotine tag=5 
 
 
 ###################Applications###################
