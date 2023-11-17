@@ -191,6 +191,10 @@ status_command /bin/bumblebee-status -m cpu memory datetime \
 mode hide
     hidden_state hide
     modifier 
+ colors {
+focused_workspace  #747177 #4e4c50 #FEFEFE
+inactive_workspace #3e3e3e #908f98 #000000
+}
 }
 
 #################Resizing by 10 with Arrows#####################
@@ -215,7 +219,10 @@ mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
   bindsym Escape mode "default"
 
   bindsym Return mode "default"
-
+ colors {
+focused_workspace  #747177 #4e4c50 #FEFEFE
+inactive_workspace #3e3e3e #908f98 #000000
+}
 }
 
 bindsym $mod+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
