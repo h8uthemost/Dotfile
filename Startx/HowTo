@@ -1,0 +1,3 @@
+HowTO
+
+Put both files in your home directory, make sure they're executable. In a tty, use the command ~./xinitrc
