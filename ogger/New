@@ -1,0 +1,5 @@
+This needs:
+
+zypper in perl-File-Find-Rule
+
+to run.
