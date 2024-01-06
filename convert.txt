@@ -1,0 +1,3 @@
+ find . -name "*flac" -exec sh -c 'oggenc -q 7 "$1" -o ~/vorbis/"${1%.*}".ogg' _ {} \;   
+
+ Use this command to convert FLAC to OGG. First CD to where the flacs are. Then run the command, and it'll put the oggs in whatever folder you choose. Currently it'll put the oggs in a vorbis folder in your home directory.
