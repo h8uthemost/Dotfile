@@ -1,1 +1,8 @@
+The below command is to convert bin/cue into a compressed .chd file in either bash or zsh:
+
 for i in *.cue; do chdman createcd -i "$i" -o "${i%.*}.chd"; done
+
+This command does the same thing but if you're using Fish instead:
+
+for i in *.cue; chdman createcd -i $i -o (path change-extension chd $i); end
+
