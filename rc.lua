@@ -652,6 +652,15 @@ awful.spawn.with_shell("pgrep nm-applet || nm-applet")
 awful.spawn.with_shell("pgrep kitty -e rtorrent || kitty -e rtorrent")
 awful.spawn.with_shell("pgrep lxpolkit || lxpolkit")
 
+client.connect_signal("manage", function (c)
+
+    if not awesome.startup then 
+        awful.client.setslave(c)
+        c:jump_to()
+    end
+
+end)
+
 
 
 
