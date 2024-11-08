@@ -22,7 +22,7 @@ encryption = allow_incoming,try_outgoing,enable_retry
 
 encryption = allow_incoming,try_outgoing,require,require_RC4
 
-schedule2 = watch_directory_5,5,100,load.start=~/downloads/*.torrent
+schedule2 = watch_directory,5,5,load.start=~/downloads/*.torrent
 session =/home/scott/session
 
 ratio.enable= 
