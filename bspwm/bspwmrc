@@ -35,3 +35,5 @@ lxpolkit &
 sleep 0.05
 polybar-msg cmd hide; bspc config top_padding +0
 
+xsetroot -cursor_name left_ptr
+
