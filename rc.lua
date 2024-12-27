@@ -198,6 +198,7 @@ kbdcfg.widget:buttons(awful.util.table.join(
 ))
 
 -- Create a wibox for each screen and add it
+local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 local taglist_buttons = awful.util.table.join(
           awful.button({ }, 1, function(t) t:view_only() end),
           awful.button({ modkey }, 1, function(t)
