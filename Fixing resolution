@@ -1,0 +1,12 @@
+This is how to fix the resolution size in say, i3wm. 
+
+First create a .Xresources file in your home directory. Then put this in the file:
+
+*dpi: 150
+Xft.dpi: 150
+
+You can change that value to 125 or whatever you like. After creating and inputting the above into the .Xresources file run this command in terminal:
+
+xrdb ~/.Xresources
+
+And that's it! You should now have a larger resolution. Log in and out of your wm so it takes effect in the bar.
