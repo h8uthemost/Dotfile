@@ -1,0 +1,3 @@
+set -U fish_greeting ""
+
+This is what you type into terminal to get rid of the Fish greeting
