@@ -44,7 +44,7 @@ ethernet _first_ {
 
 battery all {
         format = "%status %percentage %remaining"
-        
+        format = "<span color='#8feac4'>-> </span>%status %percentage %remaining"
         
         
 }
