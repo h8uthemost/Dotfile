@@ -36,8 +36,8 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +01% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -01% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -49,7 +49,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -61,71 +61,6 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-
-
-#################Resizing by 10 with Arrows#####################
-bindsym $mod+Ctrl+Left resize shrink width 5 px or 5 ppt
-bindsym $mod+Ctrl+Up resize grow height 5 px or 5 ppt
-bindsym $mod+Ctrl+Down resize shrink height 5 px or 5 ppt
-bindsym $mod+Ctrl+Right resize grow width 5 px or 5 ppt
-
-
-################Autostart################################
-exec lxpolkit
-exec qlipper
-
-#########Toggling through each workspace###########
-bindsym Control+Right workspace next
-bindsym Control+Left workspace prev
-
-
-#############Custom Binds################
-bindsym mod1+a exec alacritty
-bindsym mod1+c exec chromium-browser
-bindsym mod1+Shift+e exec thunderbird
-bindsym mod1+f exec firefox
-bindsym mod1+k exec kitty
-bindsym mod1+n exec nicotine
-bindsym mod1+p exec pcmanfm
-bindsym mod1+s exec soundconverter
-bindsym mod1+t exec thunar
-bindsym mod1+q exec qutebrowser
-bindsym $mod+Shift+Return exec kitty -e ranger
-bindsym $mod+Shift+t exec kitty -e rtorrent
-bindsym $mod+b bar mode toggle
-bindsym $mod+Shift+p exec ~/touchpad.sh
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
-
-
-############Titlebars##################
-for_window [class="^.*"] border pixel 2	
-
-
-########################Wallpaper###################
-exec --no-startup-id feh --bg-scale /home/scott/dark3.jpg
-
-
-########Default Workspaces############
-assign [class="Alacritty"] $ws1
-assign [class="Kitty"] $ws1
-assign [class="Kitty -e rtorrent"] $ws1
-assign [class="(?i)firefox"] $ws2
-assign [class="Chromium-browser"] $ws2
-assign [class="Pcmanfm"] $ws3
-assign [class="Thunar"] $ws3
-assign [class="Nicotine"] $ws4
-
-
-############automatically switch to urgent windows###########
-
-for_window [urgent="latest"] focus 
-
-
-##########Inner gaps for all windows: space between two adjacent windows (or split containers).
-gaps inner 5
-
-
 
 # change focus
 bindsym $mod+j focus left
@@ -251,22 +186,76 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command ~/.config/i3/bumblebee-status/bumblebee-status -m mocp battery disk memory cpu datetime pipewire -t moonlight-powerline
-
-    colors {
-        background #000000
-        statusline #ffffff
-        separator #666666
-
-        focused_workspace  #757575 #4D4A43 #ffffff
-        
-    }
-
+        status_command i3status
+        font pango:DejaVu Sans Mono Bold 09
 }
 
 
-    
+#################Resizing by 10 with Arrows#####################
+bindsym $mod+Ctrl+Left resize shrink width 5 px or 5 ppt
+bindsym $mod+Ctrl+Up resize grow height 5 px or 5 ppt
+bindsym $mod+Ctrl+Down resize shrink height 5 px or 5 ppt
+bindsym $mod+Ctrl+Right resize grow width 5 px or 5 ppt
 
+#########Toggling through each workspace###########
+bindsym Control+Right workspace next
+bindsym Control+Left workspace prev
+
+####Custom Binds################
+bindsym mod1+a exec alacritty
+bindsym mod1+c exec chromium-browser
+bindsym mod1+e exec thunderbird
+bindsym mod1+f exec firefox
+bindsym mod1+k exec kitty
+bindsym mod1+n exec nicotine
+bindsym mod1+p exec pcmanfm
+bindsym mod1+r exec rofi -show drun
+bindsym mod1+s exec soundconverter
+bindsym mod1+t exec thunar
+bindsym mod1+q exec qutebrowser
+bindsym $mod+Shift+Return exec kitty -e ranger
+bindsym $mod+Shift+t exec kitty -e rtorrent
+bindsym $mod+b bar mode toggle
+bindsym $mod+Shift+z  exec ~/touchpad.sh
+bindsym $mod+Shift+s exec scrot -s
+#bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+#bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+
+#bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+#bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'down brightness'"
+
+
+############Titlebars##################
+for_window [class="^.*"] border pixel 2
+
+
+
+########################Wallpaper###################
+exec --no-startup-id feh --bg-scale /home/scott/dark2.jpg
+
+
+########Default Workspaces############
+assign [class="Alacritty"] $ws1
+assign [class="Kitty"] $ws1
+assign [class="Kitty -e rtorrent"] $ws1
+assign [class="(?i)firefox"] $ws2
+assign [class="Chromium-browser"] $ws2
+assign [class="Pcmanfm"] $ws3
+assign [class="Thunar"] $ws3
+assign [class="Nicotine"] $ws4
+assign [class="thunderbird"] $ws4
+
+############automatically switch to urgent windows###########
+
+for_window [urgent="latest"] focus
+
+
+##########Inner gaps for all windows: space between two adjacent windows (or split containers).
+gaps inner 5
 
 #####################Log Out########################
 set $Locker i3lock && sleep 1
@@ -291,5 +280,14 @@ bindsym $mod+Escape mode "$mode_system"
 #######################Colors###############
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #4D4A43 #4D4A43 #ffffff #4D4A43   #4D4A43
+  client.focused          #4D4A43 #4D4A43 #ffffff #4D4A43   #4D4A43
+
+
+################Autostart################################
+exec lxpolkit
+exec qlipper
+exec dunst
+
+
+
 
