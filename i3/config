@@ -218,10 +218,11 @@ bindsym $mod+Shift+t exec kitty -e rtorrent
 bindsym $mod+b bar mode toggle
 bindsym $mod+Shift+z  exec ~/touchpad.sh
 bindsym $mod+Shift+s exec scrot -s
+bindsym $mod+x exec picom -b
+bindsym mod1+x exec --no-startup-id pkill picom
+
 #bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 #bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
-
-
 #bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 #bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
@@ -287,6 +288,7 @@ bindsym $mod+Escape mode "$mode_system"
 exec lxpolkit
 exec qlipper
 exec dunst
+exec_always --no-startup-id picom &
 
 
 
