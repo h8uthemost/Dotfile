@@ -369,8 +369,10 @@ globalkeys = awful.util.table.join(
     awful.key({ "Mod1" }, "a", function() awful.spawn.with_shell("kitty -e ranger") naughty.notify({text ="Launching Ranger"}) end, {description = "ranger", group = "launcher"}),
     
     awful.key({ "Mod1"  }, "Return", function() awful.spawn.with_shell("alacritty") naughty.notify({text ="Launching Alacritty"}) end, {description = "alacritty", group = "launcher"}),
+ 
+    awful.key({ "Mod1" }, "r", function() awful.spawn.with_shell("rofi -show drun") naughty.notify({text ="Launching Rofi"}) end, {description = "rofi", group = "launcher"}),  
     
-    awful.key({ "Mod1" }, "r", function() awful.spawn.with_shell("kitty -e rtorrent") naughty.notify({text ="Launching Rtorrent"}) end, {description = "rtorrent", group = "launcher"}),
+    awful.key({ "Control" }, "r", function() awful.spawn.with_shell("kitty -e rtorrent") naughty.notify({text ="Launching Rtorrent"}) end, {description = "rtorrent", group = "launcher"}),
     
     awful.key({ "Mod1" }, "e", function() awful.spawn.with_shell("thunderbird") naughty.notify({text ="Launching Thunderbird"}) end, {description = "Thunderbird", group = "launcher"}),
     
