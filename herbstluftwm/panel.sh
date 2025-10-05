@@ -131,6 +131,13 @@ hc pad $monitor $panel_height
         # small adjustments
         right="$separator^bg() $date $separator"
         right_text_only=$(echo -n "$right" | sed 's.\^[^(]*([^)]*)..g')
+
+    bat=$(acpi|cut -d " " -f 4|cut -d "," -f 1)
+    ram=$(free -m | sed -n 2p | awk '{printf "%.2fG^fg()/%.2fG", ($3+$5)/1024, $2/1024}')
+
+    right="^fg($selbg)BAT:^fg()$bat$separator ^fg($selbg)RAM: ^fg()$ram$separator $date$separator"
+    right_text_only=$(echo -n "$right" | sed 's.\^[^(]*([^)]*)..g')
+		
         # get width of right aligned text.. and add some space..
         width=$($textwidth "$font" "$right_text_only    ")
         echo -n "^pa($(($panel_width - $width)))$right"
